@@ -37,6 +37,8 @@ public class Player : MonoBehaviour {
         Debug.Log("hit");
 		Debug.Log(coll.gameObject);
         Debug.Log(coll.contacts[0].point);
+
+		gameObject.GetComponent<ChangeSceneByCollisionEnter>().changeSceneByCollision( coll.gameObject );
     }
 
 }
