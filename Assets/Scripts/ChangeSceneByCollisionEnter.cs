@@ -7,6 +7,7 @@ public class ChangeSceneByCollisionEnter : MonoBehaviour {
 
 	public GameObject[] targetObjects ;
 	public string[] sceneNames;
+	public Color loadToColor = Color.white;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +22,10 @@ public class ChangeSceneByCollisionEnter : MonoBehaviour {
 	public void changeSceneByCollision( GameObject collisionObject ){
 		for ( int i = 0 ; i < targetObjects.Length ; i ++ ){
 			if ( targetObjects[i] == collisionObject ){
-				// SceneManager.LoadScene(sceneNames[i]);
 				Debug.Log( sceneNames[i] );
+				SceneNameKeep.lastScene = SceneManager.GetActiveScene().name;
+				// SceneManager.LoadScene(sceneNames[i]);
+				Initiate.Fade(sceneNames[i],loadToColor,0.5f);
 			}
 		}
 	}
