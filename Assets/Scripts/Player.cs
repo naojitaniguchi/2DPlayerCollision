@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Player : MonoBehaviour {
     public float speed;
+	public GameObject textObject ;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +41,13 @@ public class Player : MonoBehaviour {
 		Debug.Log(coll.gameObject);
         Debug.Log(coll.contacts[0].point);
 
+		//textObject.GetComponent<Text>().text = "痛っつ";
+
 		gameObject.GetComponent<ChangeSceneByCollisionEnter>().changeSceneByCollision( coll.gameObject );
+
+		if ( coll.gameObject.GetComponent<Conversation>() != null ){
+			coll.gameObject.GetComponent<Conversation>().startConversation() ;
+		}
     }
 
 }
