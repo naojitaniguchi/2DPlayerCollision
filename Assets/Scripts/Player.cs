@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
     public float speed;
 	public GameObject textObject ;
+	bool upPushed = false ;
+	bool downPushed = false ;
+	bool leftPushed = false ;
+	bool rightPushed = false ;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +38,24 @@ public class Player : MonoBehaviour {
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * speed * -1.0f;
         }
 
+		if (upPushed)
+		{
+			gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+		}
+		if (downPushed)
+		{
+			gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * speed * -1.0f;
+		}
+		if (rightPushed)
+		{
+			gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
+		}
+		if (leftPushed)
+		{
+			gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * speed * -1.0f;
+		}
+
+
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -49,5 +71,28 @@ public class Player : MonoBehaviour {
 			coll.gameObject.GetComponent<Conversation>().startConversation() ;
 		}
     }
+
+	public void upButtonPushed(){
+		upPushed = true ;
+	}
+
+	public void downButtonPushed(){
+		downPushed = true ;
+	}
+
+	public void leftButtonPushed(){
+		leftPushed = true ;
+	}
+
+	public void rightButtonPushed(){
+		rightPushed = true ;
+	}
+
+	public void buttonUpped(){
+		upPushed = false ;
+		downPushed = false ;
+		leftPushed = false ;
+		rightPushed = false ;
+	}
 
 }
