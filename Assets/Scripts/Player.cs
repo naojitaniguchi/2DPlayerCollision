@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
 
 		//textObject.GetComponent<Text>().text = "痛っつ";
 
-		gameObject.GetComponent<ChangeSceneByCollisionEnter>().changeSceneByCollision( coll.gameObject );
+		// gameObject.GetComponent<ChangeSceneByCollisionEnter>().changeSceneByCollision( coll.gameObject );
 
 		if ( coll.gameObject.GetComponent<Conversation>() != null ){
 			coll.gameObject.GetComponent<Conversation>().startConversation() ;
