@@ -20,6 +20,7 @@ public class ChangeSceneNearDoor : MonoBehaviour {
 			Vector3 targetPos = DoorObject.transform.position + DoorOffset ;
 			Vector3 diff = targetPos - gameObject.transform.position ;
 			if ( diff.magnitude < doorRadius ){
+				// シーンを切り替える
 				Initiate.Fade(sceneName,loadToColor,0.5f);
 			}
 		}
