@@ -70,6 +70,9 @@ public class Player : MonoBehaviour {
 		if ( coll.gameObject.GetComponent<Conversation>() != null ){
 			coll.gameObject.GetComponent<Conversation>().startConversation() ;
 		}
+		if ( coll.gameObject.GetComponent<FadeinTarget>() != null ){
+			coll.gameObject.GetComponent<FadeinTarget>().startFadein() ;
+		}
     }
 
 	public void upButtonPushed(){

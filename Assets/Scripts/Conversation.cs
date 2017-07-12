@@ -30,6 +30,7 @@ public class Conversation : MonoBehaviour {
 				if ( textCount == texts.Length ){
 					StartCoroutine ("closeText");
 					conversationStarted = false ;
+					textCount = 0 ;
 				}
 			}
 		}
@@ -38,6 +39,7 @@ public class Conversation : MonoBehaviour {
 	public void startConversation(){
 		conversationStarted = true ;
 		textTop.SetActive( true ) ;
+		textCount = 0 ;
 		textObject.GetComponent<Text>().text = texts[textCount];
 		textCount ++ ;
 	}
